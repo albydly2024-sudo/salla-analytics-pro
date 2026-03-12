@@ -11,7 +11,7 @@ function OrdersPage() {
         const fetchOrders = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:5000/api/orders');
+                const response = await axios.get('https://salla-backend-a3mt.onrender.com/api/orders');
                 setOrders(response.data.data);
             } catch (err) {
                 setError("فشل في جلب طلبات المتجر");

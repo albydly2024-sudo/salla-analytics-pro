@@ -11,7 +11,7 @@ function ProductsPage() {
         const fetchProducts = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:5000/api/products');
+                const response = await axios.get('https://salla-backend-a3mt.onrender.com/api/products');
                 setProducts(response.data.data);
             } catch (err) {
                 setError("فشل في جلب قائمة المنتجات");

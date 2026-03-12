@@ -35,7 +35,7 @@ function App() {
       try {
         setLoading(true);
         // Pointing to our local node.js backend, passing the timeframe filter
-        const response = await axios.get(`http://localhost:5000/api/dashboard?timeframe=${timeframe}`);
+        const response = await axios.get(`https://salla-backend-a3mt.onrender.com/api/dashboard?timeframe=${timeframe}`);
         setData(response.data);
       } catch (err) {
         setError("فشل في جلب البيانات من الخادم");
@@ -299,7 +299,7 @@ function SettingsPage({ reloadData }) {
     const [status, setStatus] = useState({ loading: false, message: '', type: '' });
 
     useEffect(() => {
-        axios.get('http://localhost:5000/api/settings')
+        axios.get('https://salla-backend-a3mt.onrender.com/api/settings')
             .then(res => setToken(res.data.sallaToken || ''))
             .catch(console.error);
     }, []);
@@ -307,7 +307,7 @@ function SettingsPage({ reloadData }) {
     const saveSettings = async () => {
         setStatus({ loading: true, message: '', type: '' });
         try {
-            await axios.post('http://localhost:5000/api/settings', { sallaToken: token });
+            await axios.post('https://salla-backend-a3mt.onrender.com/api/settings', { sallaToken: token });
             setStatus({ loading: false, message: 'تم حفظ التوكن بنجاح! يتم تحديث لوحة التحكم الآن...', type: 'success' });
             setTimeout(() => {
                 reloadData();
